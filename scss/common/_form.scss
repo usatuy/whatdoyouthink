@@ -1,0 +1,68 @@
+.wdt-label {
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid $stable;
+  &.has-errors {
+    border-bottom: 1px solid $assertive;
+    i {
+      color: $assertive;
+    }
+  }
+  &.no-errors {
+    border-bottom: 1px solid $balanced;
+    i {
+      color: $balanced;
+    }
+  }
+  i {
+    color: $stable;
+    font-size: 24px;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"]{
+    color: $stable;
+    padding: 5px 15px;
+    border: 0;
+    &::-webkit-input-placeholder {color: $stable}
+    &::-moz-placeholder          {color: $stable}
+    &:-moz-placeholder           {color: $stable}
+    &:-ms-input-placeholder      {color: $stable}
+    &:focus::-webkit-input-placeholder {color: transparent}
+    &:focus::-moz-placeholder          {color: transparent}
+    &:focus:-moz-placeholder           {color: transparent}
+    &:focus:-ms-input-placeholder      {color: transparent}
+  }
+  &.dark-color {
+    border-bottom: 1px solid $dark;
+    i {
+      color: $dark;
+      font-size: 24px;
+    }
+    &.has-errors {
+      border-bottom: 1px solid $assertive;
+      i {
+        color: $assertive;
+      }
+    }
+    &.no-errors {
+      border-bottom: 1px solid $dark;
+      i {
+        color: $dark;
+      }
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"]{
+      color: $dark;
+      &::-webkit-input-placeholder {color: $dark}
+      &::-moz-placeholder          {color: $dark}
+      &:-moz-placeholder           {color: $dark}
+      &:-ms-input-placeholder      {color: $dark}
+      &:focus::-webkit-input-placeholder {color: transparent}
+      &:focus::-moz-placeholder          {color: transparent}
+      &:focus:-moz-placeholder           {color: transparent}
+      &:focus:-ms-input-placeholder      {color: transparent}
+    }
+  }
+}

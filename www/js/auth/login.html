@@ -1,0 +1,62 @@
+<ion-view view-title="Login">
+  <ion-content class="auth-page" scroll="false">
+    <div class="list list-inset">
+      <h4 class="logo-text">What do you think?</h4>
+      <form name="loginForm" novalidate="">
+        <label class="item item-input wdt-label"
+               ng-class="{ 'has-errors' : loginForm.email.$touched && loginForm.email.$invalid, 'no-errors' : loginForm.email.$valid}">
+          <i class="ion-ios-email-outline placeholder-icon"></i>
+          <input type="email"
+                 name="email"
+                 ng-model="loginControllerVm.user.email"
+                 ng-required="true"
+                 placeholder="youremail@mail.com">
+        </label>
+        <div class="error-container" ng-show="loginForm.email.$touched && loginForm.email.$invalid" ng-messages="loginForm.email.$error">
+          <div ng-messages-include="error-list"></div>
+        </div>
+        <label class="item item-input wdt-label"
+               ng-class="{ 'has-errors' : loginForm.password.$error && loginForm.$submitted, 'no-errors' : loginForm.password.$valid}">
+          <i class="ion-ios-locked-outline placeholder-icon"></i>
+          <input type="password"
+                 name="password"
+                 ng-model="loginControllerVm.user.password"
+                 ng-required="true"
+                 placeholder="*******"
+                 ng-minlength="6">
+        </label>
+        <div class="error-container" ng-show="loginForm.password.$error && loginForm.$submitted" ng-messages="loginForm.password.$error">
+          <div ng-messages-include="error-list"></div>
+        </div>
+        <div class="button-bar">
+          <a ng-disabled="!loginForm.$valid" class="button button-block button-calm" ng-click="loginControllerVm.registration(loginControllerVm.user)">Sign Up</a>
+          <a ng-disabled="!loginForm.$valid" class="button button-block button-balanced" ng-click="loginControllerVm.signIn(loginControllerVm.user)">Sign In</a>
+        </div>
+        <!-- todo: Need fix facebook login for device -->
+        <!--<button class="button button-block button-positive facebook"-->
+                <!--ng-click="loginControllerVm.social({provider: 'facebook'})">-->
+          <!--<i class="ion-social-facebook-outline"></i>-->
+        <!--</button>-->
+      </form>
+    </div>
+
+    <script id="error-list" type="text/ng-template">
+      <div class="error" ng-message="required">
+        <i class="ion-information-circled"></i>
+        This field is required!
+      </div>
+      <div class="error" ng-message="minlength">
+        <i class="ion-information-circled"></i>
+        Minimum length of this field is 13 characters!
+      </div>
+      <div class="error" ng-message="maxlength">
+        <i class="ion-information-circled"></i>
+        Maximum length of this field is 13 characters!
+      </div>
+      <div class="error" ng-message="email">
+        <i class="ion-information-circled"></i>
+        Not valid email
+      </div>
+    </script>
+  </ion-content>
+</ion-view>

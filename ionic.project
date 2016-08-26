@@ -1,0 +1,13 @@
+{
+  "name": "learnApp",
+  "app_id": "1cd33950",
+  "gulpStartupTasks": [
+    "sass",
+    "js",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

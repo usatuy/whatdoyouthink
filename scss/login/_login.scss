@@ -1,0 +1,41 @@
+.login-page {
+	padding-top: 50%;
+	background: url('../img/auth_bg.jpg');
+	background-size: cover;
+	background-position: center;
+  .list-inset {
+    background-color: transparent;
+    border: 0;
+    label {
+      border: 0;
+      background-color: transparent;
+      i {
+        color: $stable;
+      }
+      input[type="text"],
+      input[type="password"]{
+        color: $stable;
+        padding: 5px 15px;
+        border: 0;
+        border-bottom: 1px solid $stable;
+      }
+    }
+  }
+  .button {
+    margin-top: 100px;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+    bottom: $bar-footer-height;
+		margin-bottom: 0;
+  }
+  &-footer {
+    display: inline-block;
+    padding-top: 10px;
+    border: 0;
+    background-image: none;
+    background-color: transparent;
+    text-align: center;
+    color: $stable;
+  }
+}

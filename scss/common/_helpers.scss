@@ -1,0 +1,14 @@
+.error-container {
+  margin: 5px 0;
+  text-align: center;
+  .error {
+    padding: 0 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: $assertive;
+    i {
+      font-size: 11px;
+      color: $assertive;
+    }
+  }
+}

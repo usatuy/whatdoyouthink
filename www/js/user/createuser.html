@@ -1,0 +1,73 @@
+<ion-view view-title="Places map">
+  <ion-content class="add-ser-content" scroll="false">
+    <h3>Please enter <br> user info</h3>
+    <div class="user-avatar">
+      <button ng-if="!createUserControllerVm.avatar" ng-click="createUserControllerVm.pickAvatar()"><i class="ion-image"></i></button>
+      <img ng-if="createUserControllerVm.avatar" ng-src="{{createUserControllerVm.avatar}}" alt="">
+    </div>
+    <form name="addUserInfoForm" novalidate="">
+      <label class="item item-input wdt-label dark-color"
+             ng-class="{ 'has-errors' : addUserInfoForm.first_name.$touched && addUserInfoForm.first_name.$invalid, 'no-errors' : addUserInfoForm.first_name.$valid}">
+        <i class="ion-ios-person-outline placeholder-icon"></i>
+        <input type="text"
+               name="first_name"
+               ng-model="createUserControllerVm.user.first_name"
+               ng-minlength="3"
+               placeholder="Your name"
+               required>
+      </label>
+      <div class="error-container"
+           ng-show="addUserInfoForm.first_name.$touched && addUserInfoForm.first_name.$invalid"
+           ng-messages="addUserInfoForm.first_name.$error">
+        <div ng-messages-include="error-list"></div>
+      </div>
+      <label class="item item-input wdt-label dark-color"
+             ng-class="{ 'has-errors' : addUserInfoForm.phone.$touched && addUserInfoForm.phone.$invalid, 'no-errors' : addUserInfoForm.phone.$valid}">
+        <i class="ion-ios-telephone-outline placeholder-icon"></i>
+        <input type="text"
+               name="phone"
+               ng-model="createUserControllerVm.user.phone"
+               placeholder="+xxxxxxxxxxxx"
+               ng-minlength="13"
+               ng-maxlength="13"
+               ng-pattern="createUserControllerVm.phoneReg"
+               required>
+      </label>
+      <div class="error-container"
+           ng-show="addUserInfoForm.phone.$touched && addUserInfoForm.phone.$invalid"
+           ng-messages="addUserInfoForm.phone.$error">
+        <div ng-messages-include="error-list"></div>
+      </div>
+      <ion-radio class="gender-radio" ng-model="createUserControllerVm.user.gender" ng-value="'male'"><i class="ion-male"></i> Male</ion-radio>
+      <ion-radio class="gender-radio" ng-model="createUserControllerVm.user.gender" ng-value="'female'"><i class="ion-female"></i> Female</ion-radio>
+      <button class="button button-block button-balanced button-send-user"
+              ng-disabled="!addUserInfoForm.$valid"
+              ng-click="createUserControllerVm.createUser()">
+        <i class="ion-person-add"></i>
+        Add your info
+      </button>
+    </form>
+    <script id="error-list" type="text/ng-template">
+      <div class="error" ng-message="required">
+        <i class="ion-information-circled"></i>
+        This field is required!
+      </div>
+      <div class="error" ng-message="minlength">
+        <i class="ion-information-circled"></i>
+        Minimum length of this field is 13 characters!
+      </div>
+      <div class="error" ng-message="maxlength">
+        <i class="ion-information-circled"></i>
+        Maximum length of this field is 13 characters!
+      </div>
+      <div class="error" ng-message="email">
+        <i class="ion-information-circled"></i>
+        Not valid email
+      </div>
+      <div class="error" ng-message="pattern">
+        <i class="ion-information-circled"></i>
+        Not valid phone number
+      </div>
+    </script>
+  </ion-content>
+</ion-view>

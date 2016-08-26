@@ -1,0 +1,19 @@
+<ion-view view-title="Contacts">
+  <ion-content>
+    <h2 ng-if="!contactsControllerVm.contacts">No contacts</h2>
+    <!--<pre style="height:400px; overflow: scroll;">-->
+      <!--{{contactsControllerVm.contacts | json}}-->
+    <!--</pre>-->
+    <ion-list>
+      <ion-item ng-repeat="item in contactsControllerVm.contacts | orderBy : item.displayName"
+                class="item-thumbnail-left" ng-if="item.phoneNumbers">
+        <img src="{{item.photos[0].value}}" ng-if="item.photos.length > 0">
+        <img src="../../img/ionic.png" ng-if="!item.photos">
+        <h2>{{item.displayName}}</h2>
+        <div class="phones" ng-repeat="phone in item.phoneNumbers">
+          <p>{{phone.type}}: {{phone.value}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
